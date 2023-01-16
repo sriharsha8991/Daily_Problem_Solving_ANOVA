@@ -167,34 +167,5 @@ odd_op(pl)
 #output: [1, 3, 5, 7, 9]
 
 
-# # Day 2 ,Questions and Answers
 
-# #My Question--
-# "Given a list of integers, write a function to find the second largest number in the list. The function should return the second largest number, or None if there is less than 2 numbers in the list. Additionally, the function should not use any built-in sorting functions, and should have a time complexity of O(n)."
-
-# In[64]:
-
-
-#Method 1
-pp = [1,2,3,4,56,67,5]
-def second_largest(nums):
-    if len(nums)>2:
-        nums.remove(max(nums))
-        return max(nums)
-    return None
-#second_largest(pp)
-
-
-# In[65]:
-
-
-#Method 2
-maxi = 0
-second = 0
-for i in pp: 
-    if i>maxi:
-        maxi,second = i,maxi
-    elif i>second:
-        second = i
-print(second)
 
