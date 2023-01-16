@@ -83,6 +83,23 @@ def product_list(lst):
 
 print(product_list([1, 2, 3, 4, 5, 0]))
 
+# Method 3
+def product_list(numbers):
+    n = len(numbers)
+    product = [1] * n
+    left_product = 1
+    for i in range(n):
+        product[i] *= left_product
+        left_product *= numbers[i]
+    right_product = 1
+    for i in range(n-1, -1, -1):
+        product[i] *= right_product
+        right_product *= numbers[i]
+    return product
+
+numbers = [1, 2, 3, 4, 5,0]
+print(product_list(numbers))
+
 
 
 #----------------------------------------------------------Q3-------------------------------------------------------------------------------------------------
