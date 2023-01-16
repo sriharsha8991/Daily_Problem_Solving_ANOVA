@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Day1 Questions and answers
+## Day1 Questions and answers
 
 # write function that returns no of ways to award 1st, 2nd and 3rd cup among given input 'n' (participants) note :
 # 
