@@ -220,4 +220,90 @@ swap_first_last("Hello")
 #Output-- 'oellH'
 
 #______________________________________________________________________________________________________________________________________________________________________
-#-----------------------------------------------------------------------DAY3-------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------DAY4-------------------------------------------------------------------------------------------
+# Write a program that takes two String input's i.e "str1" , "str2" and returns the letters of str2 that are not in the str1
+
+# Example : 
+#  Assume if two strings given by user are
+#   -> str1 = "hello"
+#   -> str2 = "world"
+#   -> result = "wrd"
+def uncommon(str1,str2):
+    ans = ""
+    for i in str2:
+        if i not in str1:
+            ans += i
+    return ans
+
+
+# Problem Description
+# Given an one-dimensional unsorted array A containing N integers.
+# You are also given an integer B, find if there exists a pair of elements in the array whose difference is B.
+# Return 1 if any such pair exists else return 0.
+
+# Input Format
+# First argument is an integer array A of size N.
+# Second argument is an integer B.
+# Output Format
+# Return 1 if any such pair exists else return 0.
+
+# Example Input
+# Input 1:
+#  A = [5, 10, 3, 2, 50, 80]
+#  B = 78
+
+# Input 2:
+#  A = [-10, 20]
+#  B = 30
+
+# Example Output
+# Output 1:  1
+# Output 2:  1
+
+# Example Explanation
+# Explanation 1:
+#  Pair (80, 2) gives a difference of 78.
+# Explanation 2:
+
+#  Pair (20, -10) gives a difference of 30 i.e 20 - (-10) => 20 + 10 => 30
+
+# Note:You only need to implement the given function. Do not read input, instead use the arguments to the function. Do not print the output, instead return values as specified.
+
+#Brutforce:
+def diff_pair(l,b):
+    for i in l:
+        for j in l:
+            if (i-j==b) or (j-i==b):
+                return 1
+    return 0
+
+#Hash Table: O(n) complexity
+def diff_pair_hast(l,b):
+    dt = {}
+    for i in range(len(l)):
+        dt[l[i]] = i
+    print(dt)
+    for i in range(len(l)):
+        if (l[i]-b in dt) or (l[i]+b in dt):
+            return 1
+    return 0
+        
+diff_pair_hast([20,-10,25],35) 
+
+
+# Create a Python program that takes a list of integers as input and returns a new list with the even numbers sorted in ascending order and the odd numbers sorted in descending order.
+
+# You should use list comprehension and lambda function to solve this problem.
+
+# def sort_even_odd(numbers):
+#     # return the new list with even numbers sorted in ascending order and odd numbers sorted in descending order
+#     pass
+
+# print(sort_even_odd([1, 2, 3, 4, 5, 6, 7, 8, 9])) # should return [9, 7, 5, 3, 1, 2, 4, 6, 8]
+
+def sort_even_odd(numbers):
+    numbers.sort(key=lambda x: x if x%2==0 else -x)
+    return numbers
+
+numbers = [3, 2, 7, 9, 12, 8, 11, 6]
+print(sort_even_odd(numbers))
